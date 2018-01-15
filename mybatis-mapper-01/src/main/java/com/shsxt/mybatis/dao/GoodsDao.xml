@@ -9,4 +9,24 @@
             from yg_goods where id = #{id}
     </select>
 
+
+    <select id="queryGoodslikeGoodsName" parameterType="string" resultType="goods">
+        SELECT  id, goods_name  'goodsName', goods_price 'goodsPrice', goods_stock 'stock'
+         FROM  yg_goods WHERE  goods_name LIKE concat('%',#{goodsName},'%');
+    </select>
+
+
+    <select id="queryGoodsByIdAndGoodsName" parameterType="map" resultType="goods">
+        SELECT  id, goods_name  'goodsName', goods_price 'goodsPrice', goods_stock 'stock'
+        FROM  yg_goods WHERE  goods_name =  #{goodsName}  AND  id =  #{id}
+    </select>
+
+    <select id="queryGoodsByIdAndGoodsNameV2" parameterType="goods" resultType="goods">
+        SELECT  id, goods_name  'goodsName', goods_price 'goodsPrice', goods_stock 'stock'
+        FROM  yg_goods WHERE  goods_name =  #{goodsName}  AND  id =  #{id}
+    </select>
+
+
+
+
 </mapper>
