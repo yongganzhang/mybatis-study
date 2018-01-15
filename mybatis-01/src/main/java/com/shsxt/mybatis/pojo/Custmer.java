@@ -1,15 +1,15 @@
 package com.shsxt.mybatis.pojo;
 
-/**
- * Created by Administrator on 2018/1/15.
- */
+
+import org.apache.ibatis.type.Alias;
+
 public class Custmer {
 
     private int id;
 
     private String userName;
 
-    private String balance;
+//    private String balance;
 
     public int getId() {
         return id;
@@ -27,20 +27,20 @@ public class Custmer {
         this.userName = userName;
     }
 
-    public String getBalance() {
-        return balance;
-    }
+//    public String getBalance() {
+//        return balance;
+//    }
+//
+//    public void setBalance(String balance) {
+//        this.balance = balance;
+//    }
 
-    public void setBalance(String balance) {
-        this.balance = balance;
-    }
 
     @Override
     public String toString() {
         return "Custmer{" +
                 "id=" + id +
                 ", userName='" + userName + '\'' +
-                ", balance='" + balance + '\'' +
                 '}';
     }
 }

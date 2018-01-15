@@ -16,7 +16,7 @@ import java.io.InputStream;
  */
 public class App {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         // 加载mybatis的配置文件
 //        File file = Resources.getResourceAsFile("mybatis-config.xml");
 

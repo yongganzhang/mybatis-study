@@ -2,25 +2,44 @@
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
 <!-- 添加数据库连接相关配置信息 -->
 <configuration>
+
+    <properties resource="db.properties"/>
+    
+    <settings>
+        <setting name="cacheEnabled" value="false"/>
+     <!--   <setting name="lazyLoadingEnabled" value="true"/>-->
+      <!--  <setting name="autoMappingUnknownColumnBehavior" value="FAILING"></setting>-->
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
+
+    <!--别名的配置  每个人必须会 -->
+    <typeAliases>
+      <!--  <typeAlias type="com.shsxt.mybatis.pojo.Custmer" alias="custmer"/>-->
+        <package name="com.shsxt.mybatis.pojo"/>
+    </typeAliases>
+
     <environments default="development">
         <environment id="development">
             <!-- 加入事务控制 -->
-            <transactionManager type="jdbc" />
+            <transactionManager type="jdbc"/>
             <!-- 配置数据库连接信息 -->
             <dataSource type="pooled">
-                <property name="driver" value="com.mysql.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://127.0.0.1:3306/spring_test" />
-                <property name="username" value="root" />
-                <property name="password" value="1234" />
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.user}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
 
+
     <!-- mapper 配置文件指定 文件数量可配置多个-->
     <mappers>
-        <mapper resource="com/shsxt/mybatis/mapper/CustomerMapper.xml" />
+        <mapper resource="com/shsxt/mybatis/mapper/CustomerMapper.xml"/>
     </mappers>
 
 </configuration>
