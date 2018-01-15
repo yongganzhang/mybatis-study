@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shsxt.mybatis.mapper.customermapper">
+
+   <!-- 查询客户 使用ID    , ,  -->
+    <select id="queryCustomerById" parameterType="int" resultType="Custmer">
+          SELECT id , user_name 'userName', user_balance 'balance' FROM  yg_customer WHERE  id =  #{id}
+    </select>
+
+
+</mapper>

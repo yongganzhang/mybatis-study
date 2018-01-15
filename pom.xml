@@ -12,6 +12,7 @@
     <modules>
         <module>mybatis-01</module>
         <module>mybatis-typeHandler01</module>
+		<module>mybatis-plugin-01</module>
     </modules>
 
 
