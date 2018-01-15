@@ -1,7 +1,5 @@
 package com.shsxt.mybatis.pojo;
 
-import lombok.Data;
-
 /**
  * Created by Administrator on 2018/1/15.
  */

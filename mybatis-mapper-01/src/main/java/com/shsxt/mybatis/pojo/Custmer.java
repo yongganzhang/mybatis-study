@@ -7,7 +7,7 @@ public class Custmer {
 
     private String userName;
 
-//    private String balance;
+    private double balance;
 
     public int getId() {
         return id;
@@ -25,14 +25,13 @@ public class Custmer {
         this.userName = userName;
     }
 
-//    public String getBalance() {
-//        return balance;
-//    }
-//
-//    public void setBalance(String balance) {
-//        this.balance = balance;
-//    }
+    public double getBalance() {
+        return balance;
+    }
 
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
 
     @Override
     public String toString() {

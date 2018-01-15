@@ -28,7 +28,7 @@ public class App {
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
 
         // 构建数据库 会话
-        SqlSession session = factory.openSession();
+        SqlSession session = factory.openSession(true);
 
         // 接口映射器 ----》 ibatis ---> mybatis 新增加的特性值
 //        CustomerDao customerDao = session.getMapper(CustomerDao.class);
@@ -53,12 +53,21 @@ public class App {
 //        Goods goods = goodsDao.queryGoodsByIdAndGoodsName(params);
 //        System.out.println(goods);
 
-        Goods good = new Goods();
-        good.setId(4);
-        good.setGoodsName("web");
+//        Goods good = new Goods();
+//        good.setId(4);
+//        good.setGoodsName("web");
+//
+//        Goods v2 = goodsDao.queryGoodsByIdAndGoodsNameV2(good);
+//        System.out.println(v2);
 
-        Goods v2 = goodsDao.queryGoodsByIdAndGoodsNameV2(good);
-        System.out.println(v2);
+        ///////////////////////////////////////////////////
+        CustomerDao customerDao = session.getMapper(CustomerDao.class);
+
+//        Integer count = customerDao.queryCunstomerCount();
+//        System.out.println(count);
+
+        String name = customerDao.queryCunstomerNameById(2);
+        System.out.println(name);
 
     }
 }
