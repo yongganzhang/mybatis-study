@@ -26,4 +26,21 @@
         INSERT  INTO  yg_customer (user_name, user_balance) VALUES  (#{userName}, #{balance})
     </insert>
 
+    <insert id="batchAddCustomer"  parameterType="list">
+        INSERT INTO  yg_customer (user_name, user_balance) VALUES
+        <foreach collection="list" item="temp" separator=",">
+            (#{temp.userName}, #{temp.balance})
+        </foreach>
+    </insert>
+
+
+    <update id="updateCustomerById" parameterType="custmer" >
+        UPDATE yg_customer SET user_name = #{userName} , user_balance = #{balance}   WHERE  id = #{id}
+    </update>
+
+
+    <delete id="delCustomerById" parameterType="int">
+        DELETE FROM  yg_customer WHERE  id = #{id}
+    </delete>
+
 </mapper>

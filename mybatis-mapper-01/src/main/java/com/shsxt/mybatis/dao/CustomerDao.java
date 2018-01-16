@@ -2,6 +2,8 @@ package com.shsxt.mybatis.dao;
 
 import com.shsxt.mybatis.pojo.Custmer;
 
+import java.util.List;
+
 
 public interface CustomerDao {
 
@@ -27,5 +29,22 @@ public interface CustomerDao {
      */
     public  int addCusomerHasKey (Custmer custmer);
 
+
+    public int batchAddCustomer (List<Custmer> list);
+
+
+    /**
+     * 更新
+     * @param cus
+     * @return
+     */
+    public  int updateCustomerById (Custmer cus);
+
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    public int  delCustomerById (int id);
 
 }

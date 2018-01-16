@@ -4,29 +4,28 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shsxt.mybatis.dao.GoodsDao">
 
+    <sql id="baseGoodsSql">id, goods_name 'goodsName' , goods_price 'goodsPrice' , goods_stock 'stock'</sql>
+
     <select id="queryGoodsById" parameterType="int" resultType="goods">
-         select id, goods_name 'goodsName' , goods_price 'goodsPrice' , goods_stock 'stock'
-            from yg_goods where id = #{id}
+         select <include refid="baseGoodsSql"/>  from yg_goods where id = #{id}
     </select>
 
 
     <select id="queryGoodslikeGoodsName" parameterType="string" resultType="goods">
-        SELECT  id, goods_name  'goodsName', goods_price 'goodsPrice', goods_stock 'stock'
+        SELECT <include refid="baseGoodsSql"/>
          FROM  yg_goods WHERE  goods_name LIKE concat('%',#{goodsName},'%');
     </select>
 
 
     <select id="queryGoodsByIdAndGoodsName" parameterType="map" resultType="goods">
-        SELECT  id, goods_name  'goodsName', goods_price 'goodsPrice', goods_stock 'stock'
+        SELECT  <include refid="baseGoodsSql"/>
         FROM  yg_goods WHERE  goods_name =  #{goodsName}  AND  id =  #{id}
     </select>
 
     <select id="queryGoodsByIdAndGoodsNameV2" parameterType="goods" resultType="goods">
-        SELECT  id, goods_name  'goodsName', goods_price 'goodsPrice', goods_stock 'stock'
-        FROM  yg_goods WHERE  goods_name =  #{goodsName}  AND  id =  #{id}
+        SELECT <include refid="baseGoodsSql"/>
+        FROM  yg_goods WHERE  goods_name =  ${goodsName}  AND  id =  ${id}
     </select>
-
-
 
 
 </mapper>
