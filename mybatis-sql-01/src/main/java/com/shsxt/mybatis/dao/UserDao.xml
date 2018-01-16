@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shsxt.mybatis.dao.UserDao">
+
+    <select id="queryUserLikeName" parameterType="string" resultType="user">
+        SELECT  id, user_name 'userName',user_pwd 'userPwd',true_name 'trueName'
+          FROM  t_user WHERE 1=1
+           <if test="userName !=  null and userName != '' ">
+               AND user_name LIKE  concat("%",#{userName},"%")
+           </if>
+    </select>
+
+
+    <select id="queryUserLikeNameV2" parameterType="string" resultType="user">
+        SELECT  id, user_name 'userName',user_pwd 'userPwd',true_name 'trueName'
+        FROM  t_user
+        <where>
+            <if test="userName !=  null and userName != '' ">
+                AND user_name LIKE  concat("%",#{userName},"%")
+            </if>
+        </where>
+    </select>
+
+
+
+</mapper>
