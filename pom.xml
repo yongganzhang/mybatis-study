@@ -17,6 +17,7 @@
 		<module>mybatis-sql-01</module>
 		<module>mybatis-sql-02</module>
 		<module>mybatis-sql-03</module>
+		<module>mybatis-sql-04</module>
     </modules>
 
 
